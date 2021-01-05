@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h4>Below is your current progress (only you can see your actual weight):</h4>
+    <table class="table table-striped">
+        <tr>
+            <th>Display Name</th>
+            <th>Week 1</th>
+            <th>Week 2</th>
+            <th>Week 3</th>
+            <th>Week 4</th>
+            <th>Week 5</th>
+            <th>Week 6</th>
+            <th>Week 7</th>
+            <th>Week 8</th>
+            <th>Week 9</th>
+            <th>Week 10</th>
+            <th>Week 11</th>
+            <th>Week 12</th>
+        </tr>
+        {% for row in rows %}
+            <tr>
+                {% for key in row.keys() %}
+                    {% if row[key] == None %}
+                        <td>tbd</td>
+                    {% else %}
+                        <td>{{ row[key] }}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

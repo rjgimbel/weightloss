@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+    Below is your current progress
+    <table class="table table-striped">
+        <tr>
+            <th>Username</th>
+            <th>Display Name</th>
+            <th>% difference</th>
+        </tr>
+        {% for row in results %}
+            <tr>
+                {% for key in row.keys() %}
+                    {% if row[key] == None %}
+                        <td>No weight entered</td>
+                    {% else %}
+                        <td>{{ row[key] }}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
