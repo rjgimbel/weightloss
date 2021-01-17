@@ -213,7 +213,7 @@ def inputweight():
         # The contest has started, lets figure out which week it is.
         weeks = calculate_weeks(start_date)
         # Get today's date and calculate which date is Monday, this will tell us which week of the competition it is
-        now = datetime.now().date()
+        now = datetime.now()
         #now = date(2021,1,28)
         monday = now - timedelta(days = now.weekday())
         # get the week from the weeks dictionary
@@ -242,7 +242,7 @@ def quoted():
     # The contest has started, lets figure out which week it is.
     weeks = calculate_weeks(start_date)
     # Get today's date and calculate which date is Monday, this will tell us which week of the competition it is
-    now = datetime.now().date()
+    now = datetime.now()
     #now = date(2021,1,28)
     monday = now - timedelta(days = now.weekday())
     # get the week from the weeks dictionary
@@ -273,6 +273,8 @@ def quoted():
                 lost = None
             # update results with dictionary
             results.append({'username': row['username'], 'display_name': row['display_name'], 'lost': lost})
+        # sort dict in reverse order
+        results = sorted(results, key = lambda i: i['lost'], reverse=True)
         return render_template("results.html", results=results)
     else:
         # get the first week, last week, and this week.  If this week isn't filled in yet, use last week's number for the diff
@@ -290,6 +292,8 @@ def quoted():
                 lost = None
             # update results with dictionary
             results.append({'username': row['username'], 'display_name': row['display_name'], 'lost': lost})
+        # sort dict in reverse order
+        results = sorted(results, key = lambda i: i['lost'], reverse=True)
         return render_template("results.html", results=results)
 
 
