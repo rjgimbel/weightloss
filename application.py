@@ -297,6 +297,12 @@ def quoted():
         return render_template("results.html", results=results)
 
 
+@app.route("/weightadmin", methods=["GET"])
+@login_required
+def weightadmin():
+    return render_template("weightadmin.html")
+
+
 def errorhandler(e):
     """Handle error"""
     if not isinstance(e, HTTPException):
