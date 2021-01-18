@@ -52,4 +52,4 @@ def calculate_weeks(date):
 def percent_diff(weight1, weight2):
     """Passed 2 weights and returns the % decrease/increase"""
     diff = (weight1 - weight2) / weight1 * 100
-    return str(round(diff, 2))
+    return round(diff, 2)
