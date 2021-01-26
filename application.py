@@ -222,7 +222,7 @@ def inputweight():
 
 @app.route("/results", methods=["GET"])
 @login_required
-def quoted():
+def results():
     """Display results for all users (% lost only)."""
 
     # figure out the week
@@ -290,8 +290,8 @@ def quoted():
                 lost = None
             # update results with dictionary
             results.append({'username': row['username'], 'display_name': row['display_name'], 'lost': lost})
-        # sort dict in reverse order
-        results = sorted(results, key = lambda i: i['lost'], reverse=True)
+        # sort dict in reverse order must use or 0.0 to account for users not entering weight yet
+        results = sorted(results, key = lambda i: i['lost'] or 0.0, reverse=True)
         return render_template("results.html", results=results)
 
 
