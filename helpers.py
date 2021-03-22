@@ -42,7 +42,7 @@ def calculate_weeks(date):
    # List will hold 12 weeks worth of Monday's which will be returned by the function
    mondays = {}
 
-   for week in range (12):
+   for week in range (24):
       mondays[date] = week + 1
       date += timedelta(days = 7)
 

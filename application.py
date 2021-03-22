@@ -50,7 +50,9 @@ def index():
     # get weights from db
     rows = db.execute("SELECT users.display_name, weight.'1', weight.'2', weight.'3', \
         weight.'4', weight.'5', weight.'6', weight.'7', weight.'8', weight.'9', \
-        weight.'10', weight.'11', weight.'12' \
+        weight.'10', weight.'11', weight.'12', weight.'13', weight.'14', weight.'15', \
+        weight.'16', weight.'17', weight.'18', weight.'19', weight.'20', weight.'21', \
+        weight.'22', weight.'23', weight.'24' \
         FROM users JOIN weight on weight.user_id=users.id WHERE weight.user_id=:user_id", user_id=session["user_id"])
 
     # if no weights, return apology
